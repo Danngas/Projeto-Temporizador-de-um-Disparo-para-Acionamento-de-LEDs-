@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "author": "Daniel Silva de Souza",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-pi-pico-w", "id": "pico", "top": -3.25, "left": 3.55, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 92.4,
+      "left": -226.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 140.4,
+      "left": -226.6,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 44.4,
+      "left": -226.6,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 80.75,
+      "left": -124.8,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 128.75,
+      "left": -124.8,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 176.75,
+      "left": -124.8,
+      "attrs": { "value": "330" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 6.2,
+      "left": -144,
+      "attrs": { "color": "white" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "r1:1", "led3:A", "blue", [ "v0" ] ],
+    [ "r2:1", "led1:A", "red", [ "h-38.4", "v9.6" ] ],
+    [ "r3:1", "led2:A", "green", [ "v0" ] ],
+    [ "r1:2", "pico:GP11", "green", [ "v0", "h46.8", "v57.6" ] ],
+    [ "r2:2", "pico:GP12", "green", [ "v0", "h37.2", "v19.2" ] ],
+    [ "r3:2", "pico:GP13", "green", [ "v0", "h37.2", "v-19.2" ] ],
+    [ "pico:GND.1", "btn1:1.r", "black", [ "h-28.8", "v-9.6" ] ],
+    [ "pico:GP5", "btn1:2.r", "black", [ "h-28.8", "v-28.8" ] ],
+    [ "pico:GND.4", "led3:C", "black", [ "h-28.8", "v57.64", "h-240", "v-48" ] ],
+    [ "pico:GND.4", "led1:C", "black", [ "h-28.8", "v57.64", "h-240", "v-96" ] ],
+    [ "pico:GND.4", "led2:C", "black", [ "h-28.8", "v57.64", "h-240", "v-48" ] ]
+  ],
+  "dependencies": {}
+}
